@@ -1,5 +1,7 @@
 * Start
 
+Set your rrd directory in rrdweb/setting.py
+
 #+begin_example
 twisted web --path wwwroot
 #+end_example
