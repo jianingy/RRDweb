@@ -4,7 +4,7 @@ from rrdweb import rrd
 import os
 
 
-class IndexService(Resource):
+class ListService(Resource):
 
     isLeaf = True
 
