@@ -16,7 +16,7 @@ class ListService(BaseService):
         entries = []
 
         if not os.path.isdir(absolute_path):
-            return IOError("No such file or directory: %s" % absolute_path)
+            raise IOError("No such file or directory: %s" % absolute_path)
 
         for entry in os.listdir(absolute_path):
 
@@ -27,7 +27,8 @@ class ListService(BaseService):
                 db_path = os.path.join(absolute_path, entry)
                 try:
                     ds_all = rrd.getinfo(db_path)["ds"]
-                    subitems = []
+                    href = os.path.join("/view.rpy", relative_path, entry)
+                    subitems = [dict(href=href, text="all")]
                     for ds in ds_all.keys():
                         href = os.path.join("/view.rpy", relative_path, entry)
                         href += "?ds=%s" % ds

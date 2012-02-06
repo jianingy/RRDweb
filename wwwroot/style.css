@@ -1,0 +1,42 @@
+body {
+  font-family: "Monospace";
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+
+#content {
+  padding: 0 1.5em;
+  margin: .5em;
+  background-color: white;
+}
+
+h1 {
+  font-family: "Serif";
+  line-height: 1.5em;
+  border-bottom: 1px solid #718DA8;
+}
+
+dd {
+  display: inline;
+}
+
+dt {
+  line-height: 2em;
+}
+
+#panel table {
+  width: 100%;
+}
+
+#panel label {
+  display: block;
+}
+#panel select {
+  width: 120px;
+}
+#graph {
+  text-align: center;
+  margin: 1.5em 0;
+}

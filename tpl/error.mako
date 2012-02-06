@@ -1,4 +1,7 @@
 <%inherit file="/base.mako"/>
 <div id="error">
-{$message}
+<label>${message}</label>
+<pre>
+${traceback}
+</pre>
 </div>

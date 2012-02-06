@@ -8,11 +8,9 @@
     <link rel="stylesheet" href="/style.css" type="text/css"/>
   </head>
   <body>
-    <div id="preamble"></div>
     <div id="content">
       ${next.body()}
     </div>
-    <div id="postamble"></div>
     <div id="footer"></div>
   </body>
 </html>

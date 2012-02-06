@@ -1,4 +1,5 @@
 <%inherit file="/base.mako"/>
+<h1>List Directory</h1>
 <dl>
 %if up:
 <dt><a href="/${up}">..</a></dt>
