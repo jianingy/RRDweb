@@ -60,6 +60,7 @@ def graph(db_path, **kw):
             stack = ""
         option.append("%s:%s#%s:%s%s"
                       % (kw["shape"], ds.replace("-", "_"), color, ds, stack))
-        print option
+        option.append("GPRINT:%s:LAST:LAST \:%%4.2lf %%S " % (ds))
+        option.append("GPRINT:%s:AVERAGE:AVERAGE \:%%4.2lf %%S \\r" % (ds))
 
     return run_rrdtool("graph", option, "-")

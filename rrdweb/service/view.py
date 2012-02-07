@@ -25,8 +25,8 @@ class ViewService(BaseService):
 
         end_time = request.args.get("end_time", ["now"])[0]
         start_time = request.args.get("start_time", ["-8h"])[0]
-        width = request.args.get("width", ["400"])[0]
-        height = request.args.get("height", ["100"])[0]
+        width = request.args.get("width", ["600"])[0]
+        height = request.args.get("height", ["150"])[0]
         title = request.args.get("title", os.path.splitext(db_rel_path))[0]
 
         ds = request.args.get("ds", [])
