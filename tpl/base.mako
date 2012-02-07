@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Jianing's rrdweb</title>
+    <title>RRDweb - a lightweight RRD browser</title>
     <link rel="stylesheet" href="/static/style.css" type="text/css"/>
   </head>
   <body>
