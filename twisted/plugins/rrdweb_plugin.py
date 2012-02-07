@@ -30,6 +30,6 @@ class ServiceMaker(object):
 
         site = server.Site(site_root)
 
-        return internet.TCPServer(options["port"], site)
+        return internet.TCPServer(int(options["port"]), site)
 
 serviceMaker = ServiceMaker()
