@@ -1,7 +1,6 @@
 from twisted.web.server import NOT_DONE_YET
 from twisted.internet.threads import deferToThread
 from rrdweb.service.base import BaseService
-from rrdweb.setting import setting
 from rrdweb import rrd
 import os
 
@@ -11,8 +10,10 @@ class ListService(BaseService):
     isLeaf = True
 
     def doListDirectory(self, request):
+        from rrdweb.setting import setting
+
         relative_path = "/".join(request.path.split("/")[2:]).rstrip("/")
-        absolute_path = "%s/%s" % (setting["RRD_ROOT"], relative_path)
+        absolute_path = "%s/%s" % (setting["rrd_root"], relative_path)
         entries = []
 
         if not os.path.isdir(absolute_path):
@@ -27,17 +28,17 @@ class ListService(BaseService):
                 db_path = os.path.join(absolute_path, entry)
                 try:
                     ds_all = rrd.getinfo(db_path)["ds"]
-                    href = os.path.join("/view.rpy", relative_path, entry)
+                    href = os.path.join("/view", relative_path, entry)
                     subitems = [dict(href=href, text="all")]
                     for ds in ds_all.keys():
-                        href = os.path.join("/view.rpy", relative_path, entry)
+                        href = os.path.join("/view", relative_path, entry)
                         href += "?ds=%s" % ds
                         subitems.append(dict(href=href, text=ds))
                 except:
                     subitems = []
 
                 entries.append(
-                    dict(href=os.path.join("/view.rpy", relative_path, entry),
+                    dict(href=os.path.join("/view", relative_path, entry),
                          text=entry,
                          subitems=subitems))
         return ("list", dict(entries=entries,

@@ -1,0 +1,4 @@
+---
+rrd_root: /tmp/rrd
+rrd_tool: static-rrdtool
+html_tpl: tpl

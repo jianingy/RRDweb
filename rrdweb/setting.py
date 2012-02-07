@@ -1,5 +1,15 @@
 setting = dict()
 
-setting["RRD_ROOT"] = "/tmp/rrd"
-setting["RRD_TOOL"] = "rrdtool"
-setting["HTML_TPL_PATH"] = "tpl"
+
+def load(yaml):
+    from yaml import load as yaml_load
+    import codecs
+
+    global setting
+    with codecs.open(yaml, "r", encoding="utf-8") as f:
+        setting = yaml_load(f.read())
+
+    from rrdweb.render import init as init_render_engine
+    init_render_engine()
+
+    return setting

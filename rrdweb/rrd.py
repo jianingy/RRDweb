@@ -1,4 +1,3 @@
-from rrdweb.setting import setting
 import re
 
 REGEX_DS = re.compile("^ds\[([^]]+)\]\.([^=]+)=(.+)")
@@ -6,7 +5,9 @@ REGEX_DS = re.compile("^ds\[([^]]+)\]\.([^=]+)=(.+)")
 
 def run_rrdtool(command, option, rrd):
     from subprocess import check_output, STDOUT
-    command = [setting["RRD_TOOL"], command, rrd]
+    from rrdweb.setting import setting
+
+    command = [setting["rrd_tool"], command, rrd]
     command.extend(option)
     return check_output(command, stderr=STDOUT)
 

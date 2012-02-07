@@ -1,8 +1,8 @@
 <%inherit file="/base.mako"/>
      <h1>${title}</h1>
-     <div><a href="${up.replace("view.rpy", "list.rpy")}">back</a></div>
+     <div><a href="${up.replace("view", "list")}">back</a></div>
      <div id="graph">
-       <img src="/graph.rpy/${graph}" />
+       <img src="/graph/${graph}" />
      </div>
 
      <div id="panel">

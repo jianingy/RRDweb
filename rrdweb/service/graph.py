@@ -1,9 +1,7 @@
 from twisted.web.resource import Resource
-from rrdweb.setting import setting
 from rrdweb import rrd
 
 import os
-import time
 
 
 class GraphService(Resource):
@@ -11,8 +9,10 @@ class GraphService(Resource):
     isLeaf = True
 
     def render_GET(self, request):
+        from rrdweb.setting import setting
+
         db_rel_path = "/".join(request.path.split("/")[2:])
-        db_abs_path = "%s/%s" % (setting["RRD_ROOT"], db_rel_path)
+        db_abs_path = "%s/%s" % (setting["rrd_root"], db_rel_path)
 
         if not os.path.isfile(db_abs_path):
             return "File not found!"

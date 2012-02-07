@@ -1,12 +1,10 @@
 from twisted.internet.threads import deferToThread
 from twisted.web.server import NOT_DONE_YET
 from rrdweb.service.base import BaseService
-from rrdweb.setting import setting
 from rrdweb import rrd
 
 import urllib
 import os
-import time
 
 
 class ViewService(BaseService):
@@ -14,8 +12,10 @@ class ViewService(BaseService):
     isLeaf = True
 
     def doViewGraph(self, request):
+        from rrdweb.setting import setting
+
         db_rel_path = "/".join(request.path.split("/")[2:])
-        db_abs_path = "%s/%s" % (setting["RRD_ROOT"], db_rel_path)
+        db_abs_path = "%s/%s" % (setting["rrd_root"], db_rel_path)
 
         if not os.path.isfile(db_abs_path):
             raise IOError("No such file or directory: %s" % db_abs_path)

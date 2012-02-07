@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Jianing's rrdweb</title>
-    <link rel="stylesheet" href="/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/static/style.css" type="text/css"/>
   </head>
   <body>
     <div id="content">
