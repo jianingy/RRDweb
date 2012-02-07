@@ -27,7 +27,7 @@ class ViewService(BaseService):
         start_time = request.args.get("start_time", ["-8h"])[0]
         width = request.args.get("width", ["600"])[0]
         height = request.args.get("height", ["150"])[0]
-        title = request.args.get("title", os.path.splitext(db_rel_path))[0]
+        title = request.args.get("title", [db_rel_path])[0]
 
         ds = request.args.get("ds", [])
         shape = request.args.get("shape", ["LINE2"])[0].upper()
@@ -51,7 +51,7 @@ class ViewService(BaseService):
                        end_time=end_time,
                        width=width,
                        height=height,
-                       title=os.path.basename(request.path),
+                       title=db_rel_path,
                        ds_selected=dict([(k, 1) for k in ds]))
 
         return ("view", context)
