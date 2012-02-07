@@ -1,7 +1,30 @@
-* Start
+* Introduction
 
-Set your rrd directory in rrdweb/setting.py
+RRDweb is a lightweight rrd browser. It enables browse rrd files via
+web with various options in a given system path.
+
+* Getting Things Run
+
+** Configure RRDweb
+
+Edit configuration at etc/rrdweb.yaml, for example,
+
+#+BEGIN_EXAMPLE
+---
+# where you store your rrd files
+rrd_root: /tmp/rrd
+
+# the path to your rrdtool
+rrd_tool: static-rrdtool
+#+END_EXAMPLE
+
+
+** Run RRDweb
 
 #+begin_example
-twisted web --path wwwroot
+twisted rrdweb -c etc/rrdweb.yaml -p 8080
 #+end_example
+
+Then, visit RRDweb using your web browser
+
+http://localhost:8080/
