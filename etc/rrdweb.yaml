@@ -2,3 +2,5 @@
 rrd_root: /tmp/rrd
 rrd_tool: static-rrdtool
 html_tpl: tpl
+rrd_remote: bin/get-remote-rrd.sh
+rrd_remote_timeout: 600
