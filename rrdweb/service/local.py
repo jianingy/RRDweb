@@ -5,7 +5,7 @@ from rrdweb import rrd
 import os
 
 
-class ListService(BaseService):
+class LocalService(BaseService):
 
     isLeaf = True
 
