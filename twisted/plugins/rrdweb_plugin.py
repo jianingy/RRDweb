@@ -7,7 +7,7 @@ from twisted.application import internet
 
 class Options(usage.Options):
     optParameters = [
-        ["config", "c", "etc/rrdweb.ini",
+        ["config", "c", "etc/rrdweb.yaml",
          "Configuration filename."],
         ["port", "p", 8080, "Port to listen on."],
     ]
