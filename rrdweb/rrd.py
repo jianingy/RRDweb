@@ -9,6 +9,7 @@ def run_rrdtool(command, option, rrd):
 
     command = [setting["rrd_tool"], command, rrd]
     command.extend(option)
+    print " ".join(command)
     return check_output(command, stderr=STDOUT)
 
 
@@ -51,16 +52,17 @@ def graph(db_path, **kw):
 
     c = colors(len(kw["ds"]))
     for ds in kw["ds"]:
+        label = ds.replace("-", "_")
         color = c.next()
         option.append("DEF:%s=%s:%s:AVERAGE"
-                      % (ds.replace("-", "_"), db_path, ds))
+                      % (label, db_path, ds))
         if kw["shape"] == "AREA":
             stack = ":STACK"
         else:
             stack = ""
         option.append("%s:%s#%s:%s%s"
-                      % (kw["shape"], ds.replace("-", "_"), color, ds, stack))
-        option.append("GPRINT:%s:LAST:LAST \:%%4.2lf %%S " % (ds))
-        option.append("GPRINT:%s:AVERAGE:AVERAGE \:%%4.2lf %%S \\r" % (ds))
+                      % (kw["shape"], label, color, label, stack))
+        option.append("GPRINT:%s:LAST:LAST \:%%4.2lf %%S " % (label))
+        option.append("GPRINT:%s:AVERAGE:AVERAGE \:%%4.2lf %%S \\r" % (label))
 
     return run_rrdtool("graph", option, "-")
