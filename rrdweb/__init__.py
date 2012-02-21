@@ -8,6 +8,7 @@ from rrdweb.service.remote import RemoteService
 
 site_root = Resource()
 site_root.putChild("", IndexService())
+site_root.putChild("status.taobao", File("status.taobao"))
 site_root.putChild("static", File("static"))
 site_root.putChild("view", ViewService())
 site_root.putChild("graph", GraphService())

@@ -35,7 +35,7 @@ class GraphService(Resource):
         else:
             ds = ds_all.keys()
 
-        request.setHeader("Content-Type", "image/png")
+        request.setHeader("Content-Type", "text/plain")
 
         return rrd.graph(db_abs_path, start=start, end=end,
                          width=width, height=height,
