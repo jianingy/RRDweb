@@ -41,7 +41,7 @@ class LocalService(BaseService):
                     dict(href=os.path.join("/view", relative_path, entry),
                          text=entry,
                          subitems=subitems))
-        return ("list", dict(entries=entries,
+        return ("local", dict(entries=entries,
                              up=os.path.dirname(request.path.lstrip("/"))))
 
     def render_GET(self, request):
