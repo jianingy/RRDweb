@@ -25,8 +25,8 @@ def build_view_context(request):
 
     ds = request.args.get("ds", [])
     shape = request.args.get("shape", ["LINE2"])[0].upper()
-    upper = request.args.get("lower", "0")[0]
-    lower = request.args.get("upper", "0")[0]
+    upper = request.args.get("upper", "0")[0]
+    lower = request.args.get("lower", "0")[0]
 
     if ds:
         ds = list(set(filter(lambda x: x in ds_all, ds)))

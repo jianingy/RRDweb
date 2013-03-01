@@ -27,8 +27,8 @@ class GraphService(Resource):
         title = request.args.get("title", os.path.splitext(db_rel_path))[0]
         ds = request.args.get("ds", None)
         shape = request.args.get("shape", ["LINE2"])[0].upper()
-        upper = request.args.get("lower", "0")[0]
-        lower = request.args.get("upper", "0")[0]
+        upper = request.args.get("upper", "0")[0]
+        lower = request.args.get("lower", "0")[0]
 
         if ds:
             ds = filter(lambda x: x in ds_all, ds[0].split(","))

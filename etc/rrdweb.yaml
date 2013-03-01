@@ -1,6 +1,6 @@
 ---
-rrd_root: /tmp/rrd
-rrd_tool: /home/tops/bin/static-rrdtool
+rrd_root: /var/rrd
+rrd_tool: /usr/bin/rrdtool
 html_tpl: tpl
 rrd_remote: bin/get-remote-rrd.sh
 rrd_remote_timeout: 600
